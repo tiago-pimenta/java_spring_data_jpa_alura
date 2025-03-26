@@ -27,7 +27,7 @@ public class RelatoriosService {
 	public void inicial(Scanner scanner) {
 		
 		while(system) {
-			System.out.println("Qual relatorio deseja executar");
+			System.out.println("Qual ação de cargo que você quer executar ?");
 			System.out.println("0 - Sair");
 			System.out.println("1 - Busca Funcionario Nome");
 			System.out.println("2 - Busca Funcionario Nome, Data Contratacao e Salario Maior");
@@ -97,7 +97,7 @@ public class RelatoriosService {
 		String data = scanner.next();
 		LocalDate localDate = LocalDate.parse(data, formatter);
 		
-		List<Funcionario> list = funcionarioRepository.findDataContratacaoMaior(localDate);
+		List<Funcionario> list = funcionarioRepository.findDataContratacaMaior(localDate);
 		list.forEach(System.out::println);
 		
 	}
