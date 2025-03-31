@@ -12,6 +12,7 @@ import br.com.tiagopimenta.spring.data.repository.CargoRepository;
 import br.com.tiagopimenta.spring.data.service.CrudCargoService;
 import br.com.tiagopimenta.spring.data.service.CrudFuncionarioService;
 import br.com.tiagopimenta.spring.data.service.CrudUnidadeTrabalhoService;
+import br.com.tiagopimenta.spring.data.service.RelatorioFuncionarioDinamico;
 import br.com.tiagopimenta.spring.data.service.RelatoriosService;
 import br.com.tiagopimenta.spring.data.service.CrudCargoService;
 
@@ -24,6 +25,7 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudFuncionarioService funcionarioService;
 	private final CrudUnidadeTrabalhoService unidadeTrabalhoService;
 	private final RelatoriosService relatorioService;
+	private final RelatorioFuncionarioDinamico relatorioFuncionarioDinamico;
 	
 	private Boolean system = true;
 	
@@ -36,12 +38,14 @@ public class SpringDataApplication implements CommandLineRunner {
 	public SpringDataApplication(CrudCargoService cargoService,
 								 CrudFuncionarioService funcionarioService,
 								 CrudUnidadeTrabalhoService unidadeTrabalhoService,
-								 RelatoriosService relatorioService) {
+								 RelatoriosService relatorioService,
+								 RelatorioFuncionarioDinamico relatorioFuncionarioDinamico) {
 		
 		this.cargoService = cargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeTrabalhoService = unidadeTrabalhoService;
 		this.relatorioService = relatorioService;
+		this.relatorioFuncionarioDinamico = relatorioFuncionarioDinamico;
 		
 	}
 	
@@ -61,6 +65,7 @@ public class SpringDataApplication implements CommandLineRunner {
 			System.out.println("2 - Funcionario");
 			System.out.println("3 - Unidade");
 			System.out.println("4 - Relatorios");
+			System.out.println("5 - Relatorios Dinamico");
 			
 			int action = scanner.nextInt();
 			
@@ -97,6 +102,12 @@ public class SpringDataApplication implements CommandLineRunner {
 			case 4: {
 				
 				relatorioService.inicial(scanner);
+				break;
+			}
+			
+			case 5: {
+				
+				relatorioFuncionarioDinamico.inicial(scanner);
 				break;
 			}
 			
